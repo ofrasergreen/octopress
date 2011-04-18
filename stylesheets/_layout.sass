@@ -1,7 +1,7 @@
 $page_pad: 30px
 $page_width: 980px
-$sidebar_margin: 20px
-$sidebar_width: 280px
+$sidebar_margin: 40px
+$sidebar_width: 260px
 $default_border_radius: 4px
 
 html body
@@ -9,26 +9,36 @@ html body
   color: $body_color
   a
     color: $link_color
+    font-weight: bold
+    text-decoration: none
     &:hover, &:focus
       color: saturate(darken($link_color, 15), 20)
     &:visited
       color: darken(adjust_hue($link_color, 70), 10)
 
-#header, #footer, #nav
+#header, #footer
   .content
     position: relative
     margin: 0 auto
     width: $page_width - $page_pad
     padding: 0 $page_pad/2
 
+#nav
+  .content
+    margin-bottom: 20px
+
+#logo
+  margin-bottom: 20px
+
 #page, #header, #footer, #nav
   min-width: $page_width
+  background-color: #fff
 #page, #content, .content
   +pie-clearfix
 #content
   margin: 0 auto
   width: $page_width - $sidebar_width - $page_pad/2
-  padding: 0 $sidebar_width 0 $page_pad/2
+  padding: 0 $page_pad/2 0 $sidebar_width
 #main
   float: left
   width: 100%
@@ -38,7 +48,7 @@ html body
 #sidebar
   float: left
   width: $sidebar_width - $sidebar_margin
-  margin: 0 -100% 0 0
+  margin: 0 0 0 0-($sidebar_width + $sidebar_margin)
   padding: $page_pad 0 $page_pad $sidebar_margin
 
 #page.expanded

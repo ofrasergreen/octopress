@@ -5,15 +5,15 @@ $base-font-color: #333333 !default
 $h6: ceil($base-font-size * 1)
 $h5: ceil($base-font-size * 1)
 $h4: ceil($base-font-size * 1.2)
-$h3: ceil($base-font-size * 1.8)
-$h2: ceil($base-font-size * 2.8)
-$h1: ceil($base-font-size * 3.2)
+$h3: ceil($base-font-size * 1.5)
+$h2: ceil($base-font-size * 2.0)
+$h1: ceil($base-font-size * 2.5)
 
 =heading-font
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
+  font-family: 'Helvetica LT Std', Helvetica, Arial, sans-serif
 
 =sans-font
-  font-family: "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", Helvetica, Arial, Verdana, sans-serif
+  font-family: 'Helvetica LT Std', Helvetica, Arial, sans-serif
 
 =serif-font
   font-family: Georgia, Times, "Times New Roman", serif
@@ -32,9 +32,9 @@ $h1: ceil($base-font-size * 3.2)
   $h6: ceil($font-size * 1)
   $h5: ceil($font-size * 1)
   $h4: ceil($font-size * 1.2)
-  $h3: ceil($font-size * 1.8)
-  $h2: ceil($font-size * 2.8)
-  $h1: ceil($font-size * 3.2)
+  $h3: ceil($font-size * 1.5)
+  $h2: ceil($font-size * 2.0)
+  $h1: ceil($font-size * 2.5)
   h1, h2, h3, h4
     &:first-child
       margin-top: 0
@@ -46,6 +46,7 @@ $h1: ceil($base-font-size * 3.2)
     font-size: $h1
   h2
     font-size: $h2
+    font-weight: 100
   h3
     font-size: $h3
   h4
@@ -57,7 +58,7 @@ $h1: ceil($base-font-size * 3.2)
 
 =typography-defaults($font-size: $base-font-size)
   body
-    line-height: 1.45em
+    line-height: 1.2em
     color: $base-font-color
   p
     +p-style($font-size)

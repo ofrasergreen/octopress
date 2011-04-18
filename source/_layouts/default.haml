@@ -1,8 +1,8 @@
 ---
-blog_title: My Octopress Blog
+blog_title: Owen Fraser-Green
 author: 
 
-twitter_user: imathis
+twitter_user: ofrasergreen
 tweet_count: 3
 show_replies: false
 
@@ -17,16 +17,15 @@ google_analytics_tracking_id:
 
 ---
 
-!!! 1.1 Transitional
-%html(xmlns="http://www.w3.org/1999/xhtml" xml:lang="en")
+!!! 5
+%html
 
   = include "head.haml"
   %body(id="#{(page.respond_to?(:body_id) ? page.body_id : nil)}")
-    #header= include "header.haml"
-    #nav= include "navigation.haml"
     #page
       #content
-        #main
-          .content= preserve rp(content)
         #sidebar= include "sidebar.haml"
+        #main
+          #nav= include "navigation.haml"
+          .content= preserve rp(content)
     = include "footer.haml"
