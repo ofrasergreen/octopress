@@ -42,7 +42,7 @@ task :generate_deploy => [:integrate, :generate, :clean_debug, :deploy] do
 end
 
 desc "generate website in output directory"
-task :generate => [:generate_site, :generate_style] do
+task :generate => [:generate_tags, :generate_site, :generate_style] do
   puts ">>> Site Generating Complete! <<<\n\n>>> Refresh your browser <<<"
 end
 
@@ -219,3 +219,41 @@ task :sitemap do
     puts "Created #{site}/sitemap.xml"
   end
 end
+
+# Found at: http://gist.github.com/143571
+task :generate_tags do
+  puts 'Generating tags...'
+  require 'rubygems'
+  require 'jekyll'
+  include Jekyll::Filters
+
+  options = Jekyll.configuration({})
+  jsite = Jekyll::Site.new(options)
+  jsite.read_posts('')
+ 
+  # Sort by the number of posts in the category.
+  jsite.categories.each do |category, posts|
+    haml =<<-HAML
+---
+layout: default
+title: #{category}
+---
+%h2 #{category}
+- posts = site.categories['#{category}'].reverse.group_by { |p| p.date.strftime("%Y") }
+- posts.keys.each do |year|
+  %h3= year
+  %ul
+    - posts[year].each do |post|
+      %li(class="\#{(post.data['link'] ? "link" : nil )}")
+        = link_to(post.title, post.url)
+        %span.pubdate= post.date.strftime("%d %b, %Y")
+HAML
+
+    File.open("source/tags/#{category}.haml", 'w+') do |file|
+      file.puts haml
+    end
+ 
+    puts 'Done.'
+  end
+end
+

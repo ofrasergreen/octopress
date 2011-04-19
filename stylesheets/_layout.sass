@@ -9,12 +9,9 @@ html body
   color: $body_color
   a
     color: $link_color
-    font-weight: bold
-    text-decoration: none
+    text-decoration: underline
     &:hover, &:focus
-      color: saturate(darken($link_color, 15), 20)
-    &:visited
-      color: darken(adjust_hue($link_color, 70), 10)
+      color: lighten($link_color, 15)
 
 #header, #footer
   .content
@@ -29,6 +26,18 @@ html body
 
 #logo
   margin-bottom: 20px
+  height: 215px
+  transition: all 0.2s ease-in-out
+  -webkit-transition: all 0.2s ease-in-out
+  -moz-transition: all 0.2s ease-in-out
+  box-shadow: 0 0 0 #00a000
+  -webkit-box-shadow: 0 0 0 #00a000
+  -moz-box-shadow: 0 0 0 #00a000
+#logo:hover
+  box-shadow: 0 0 10px #00a000
+  -webkit-box-shadow: 0 0 10px #00a000
+  -moz-box-shadow: 0 0 10px #00a000
+
 
 #page, #header, #footer, #nav
   min-width: $page_width

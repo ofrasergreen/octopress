@@ -1,8 +1,13 @@
+- categories = site.categories
 #logo
   %a(href="/")
     %img(src="/images/owen-fraser-green.png" width="220" height="215")
 #tags
   %h3
     TAGS
-  Foo
-
+  %ul#tag-links
+    - categories.each do |category, posts|
+      %li
+        %a(href="/tags/#{category}.html")
+          = category
+        %span.small  (#{posts.length})
